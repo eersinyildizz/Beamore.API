@@ -1,0 +1,9 @@
+C:\Users\eersinyildizz\Source\Repos\Bemore\Beamore.Contracts\bin\Release\Beamore.Contracts.dll
+C:\Users\eersinyildizz\Source\Repos\Bemore\Beamore.Contracts\bin\Release\Beamore.Contracts.pdb
+C:\Users\eersinyildizz\Source\Repos\Bemore\Beamore.Contracts\obj\Release\Beamore.Contracts.csprojResolveAssemblyReference.cache
+C:\Users\eersinyildizz\Source\Repos\Bemore\Beamore.Contracts\obj\Release\Beamore.Contracts.dll
+C:\Users\eersinyildizz\Source\Repos\Bemore\Beamore.Contracts\obj\Release\Beamore.Contracts.pdb
+C:\Users\eersinyildizz\Desktop\ERSIN\Bemore\Beamore.Contracts\bin\Release\Beamore.Contracts.dll
+C:\Users\eersinyildizz\Desktop\ERSIN\Bemore\Beamore.Contracts\bin\Release\Beamore.Contracts.pdb
+C:\Users\eersinyildizz\Desktop\ERSIN\Bemore\Beamore.Contracts\obj\Release\Beamore.Contracts.dll
+C:\Users\eersinyildizz\Desktop\ERSIN\Bemore\Beamore.Contracts\obj\Release\Beamore.Contracts.pdb

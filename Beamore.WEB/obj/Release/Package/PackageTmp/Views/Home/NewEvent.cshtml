@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewBag.Title = "NewEvent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Event</h2>
+@if (ViewBag.error != null)
+{
+    <script>alert(@ViewBag.error)</script>
+}
+<section class="content">
+    <!-- SELECT2 EXAMPLE -->
+    <!-- /.box -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-danger">
+                <div class="box-header">
+                    <h3 class="box-title">Create New Event</h3>
+                </div>
+                <div class="box-body">
+@using (Html.BeginForm("NewEvent", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Event Name :</label>
+                                <input type="text" class="form-control" name="EventName" id="exampleInputEmail1" placeholder="Enter event name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Event Email :</label>
+                                <input type="email" class="form-control" name="EventEmail" id="exampleInputEmail1" value="Fill automaticly" disabled>
+                            </div>
+                        </div>
+                        <!-- /.form-group -->
+                        <!-- /.col -->
+                        <!-- /.col -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Event Start Date:</label>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="datetime" name="StartDate" class="form-control pull-right" id="datepicker1" required>
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Event Finish Date:</label>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="datetime" name="FinishDate" class="form-control pull-right" id="datepicker2" required>
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Event Start Time:</label>
+                                <div class="input-group">
+                                    <input type="datetime" name="StartTime"  class="form-control timepicker">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Event Latitude :</label>
+                                        <input type="number" step="0.01" class="form-control" name="Latitude" id="exampleInputEmail1" placeholder="Enter the latitude" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Event Longitude :</label>
+                                        <input type="number" step="0.01" class="form-control" name="Longitude" id="exampleInputEmail1" placeholder="Enter the longitude" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>Event Adress :</label>
+                                <textarea class="form-control" name="Address" rows="5" placeholder="Enter detail" ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="exampleInputFile" >Event Logo :</label>
+
+                                <input type="file" name="file" id="file" required/>
+                                @*<input type="hidden" name="EventLogo" id="images1" />
+                                <img src="~/Content/ajax-loader.gif" id="loading1" />
+                                <img src="" height="100" id="img1" />*@
+
+
+                                <p class="help-block">Please upload event logo</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="IsActive">Not Publish
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-block btn-primary btn-lg">Save</button>
+                        </div>
+
+
+                    </div>
+}
+                    <!-- /.row -->
+                </div>
+
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+            <!-- /.box -->
+        </div>
+        <!-- /.col (left) -->
+        <!-- /.col (right) -->
+    </div>
+    <!-- /.row -->
+</section>

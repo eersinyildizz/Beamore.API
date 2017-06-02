@@ -1,0 +1,521 @@
+﻿@model Beamore.WEB.Models.EventDetailPageModel
+
+@{
+    ViewBag.Title = "EventDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Event Name</h2> 
+
+
+<div class="row">
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <h3>@Model.NumberOfParticipant</h3>
+
+                <p>Participant</p>
+            </div>
+            <div class="icon">
+                <i class="ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+            <div class="inner">
+                <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                <p>Statistic</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+            <div class="inner">
+                <h3>@Model.NotificationCount</h3>
+
+                <p>Notification</p>
+            </div>
+            <div class="icon">
+                <i class="fa  fa-bell"></i>
+            </div>
+            <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myNotification">Sent Notification <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+        <div id="myNotification" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                @using (Html.BeginForm("SendNotification", "Home", FormMethod.Post))
+                {
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Sent Notification</h4>
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" name="EVentId" value="@Model.Event.EventID" />
+                            <div class="form-group">
+                                <label for="usr">Notification Message :</label>
+                                <textarea class="form-control" id="usr" rows="5" name="Message" required placeholder="Enter the message"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Sent</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                }               
+
+            </div>
+        </div>
+
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+            <div class="inner">
+                <h3>0</h3>
+
+                <p>Number Of Beacon</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myBeacon">Add Beacon <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+
+        <div id="myBeacon" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add Beacon</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="usr">Beacon Id :</label>
+                            <input type="text" class="form-control" id="usr">
+                        </div>
+                        <div class="form-group">
+                            <label for="usr">Beacon Password :</label>
+                            <input type="password" class="form-control" id="usr">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" >Add</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ./col -->
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header">
+                <i class="fa fa-edit"></i>
+
+                <h3 class="box-title">@Model.Event.EventName</h3>
+                <button type="button" class="btn bg-purple btn-flat margin pull-right" data-toggle="modal" data-target="#myEvent"> <i class="fa fa-fw fa-edit"></i> Edit</button>
+            </div>
+            <div class="box-body pad table-responsive">
+                    <div class="box box-solid">
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <p class="text-light-blue"><b>Event Name :<span style="color:black;">@Model.Event.EventName </span></b> </p>
+                            <p class="text-light-blue"><b>Event Email : <span style="color:black;">@Model.Event.EventEmail </span></b>  </p>
+                            <p class="text-light-blue"><b>Event Start Date: <span style="color:black;">@Model.Event.EventDate.ToString("dd/MM/yyyy") </span></b>  </p>
+                            @*<p class="text-light-blue"><b>Event Start Time: <span style="color:black;"> @Model.Event.EventStartTime("hh:mm tt") </span></b>  </p>*@
+                            <p class="text-light-blue"><b>Event Address: <span style="color:black;">@Model.Event.Location.Address </span></b>  </p>    
+                            
+                            <img src="@Model.Event.LogoUrl" />
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+               
+             
+
+                <div id="myEvent" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Edit Event</h4>
+                            </div>
+@using (Html.BeginForm("NewEvent", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+                            <div class="modal-body">
+                                <div class="box-body">
+                                   
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Event Name :</label>
+                                                    <input type="text" class="form-control" name="EventName" id="exampleInputEmail1" placeholder="Enter event name" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Event Email :</label>
+                                                    <input type="email" class="form-control" name="EventEmail" id="exampleInputEmail1" value="Fill automaticly" disabled>
+                                                </div>
+                                            </div>
+                                            <!-- /.form-group -->
+                                            <!-- /.col -->
+                                            <!-- /.col -->
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Event Start Date:</label>
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </div>
+                                                        <input type="datetime" name="StartDate" class="form-control pull-right" id="datepicker1" required>
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Event Finish Date:</label>
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </div>
+                                                        <input type="datetime" name="FinishDate" class="form-control pull-right" id="datepicker2" required>
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Event Start Time:</label>
+                                                    <div class="input-group">
+                                                        <input type="datetime" name="StartTime" class="form-control timepicker">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-clock-o"></i>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.input group -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label>Event Latitude :</label>
+                                                            <input type="number" step="0.01" class="form-control" name="Latitude" id="exampleInputEmail1" placeholder="Enter the latitude" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label>Event Longitude :</label>
+                                                            <input type="number" step="0.01" class="form-control" name="Longitude" id="exampleInputEmail1" placeholder="Enter the longitude" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label>Event Adress :</label>
+                                                    <textarea class="form-control" name="Address" rows="5" placeholder="Enter detail"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <img src="~/Content/img/avatar.png" class="img-responsive img-circle" style="height: 100px;" />
+                                                    <label for="exampleInputFile">Event Logo :</label>
+
+                                                    <input type="file" name="file" id="file" required />
+                                                    @*<input type="hidden" name="EventLogo" id="images1" />
+                            <img src="~/Content/ajax-loader.gif" id="loading1" />
+                            <img src="" height="100" id="img1" />*@
+
+
+                                                    <p class="help-block">Please upload event logo</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" checked name="IsActive">Not Publish
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                   
+                                    <!-- /.row -->
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn bg-purple" data-dismiss="modal">Save</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+
+
+}
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+    <!-- /.col -->
+    <div class="col-md-6">
+        <!-- Horizontal Form -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Event Flow</h3> 
+                <button type="button" class="btn bg-olive btn-flat margin pull-right" data-toggle="modal" data-target="#myFlowAdd"> <i class="fa fa-fw  fa-plus-circle"></i> Add/Edit</button>
+               
+                <div id="myFlowAdd" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+        @using (Html.BeginForm("FlowAdd", "Home",FormMethod.Post))
+        {
+
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Add Event Flow </h4>
+                            </div>
+                            <input type="hidden" name="EventId" value="@Model.Event.EventID" />
+                            <div class="modal-body">
+                                
+    @if (Model.EventFlow.Count != 0)
+    {
+        foreach (var item in Model.EventFlow)
+        {
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="usr">@item.FlowTime:</label>
+                    <input type="text" class="form-control" name="flow" value="@item.FlowName" id="usr">
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="usr">8 AM:</label>
+                                            <input type="text" class="form-control" name="flow" value="-" id="usr">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="usr">9 AM:</label>
+                                            <input type="text" class="form-control" name="flow" value="-" id="usr">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="usr">10 AM:</label>
+                                                <input type="text" class="form-control" name="flow" value="-" id="usr">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="usr">11 AM:</label>
+                                                <input type="text" class="form-control" name="flow" value="-" id="usr">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="usr">12 AM:</label>
+                                                <input type="text" class="form-control" name="flow" value="-" id="usr">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="usr">1 PM:</label>
+                                                <input type="text" class="form-control" name="flow" value="-" id="usr">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="usr">2 PM:</label>
+                                                <input type="text" class="form-control" name="flow" value="-" id="usr">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="usr">3 PM:</label>
+                                                <input type="text" class="form-control" name="flow" value="-" id="usr">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="usr">4 PM:</label>
+                                                <input type="text" class="form-control" name="flow" value="-" id="usr">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="usr">5 PM:</label>
+                                                <input type="text" class="form-control" name="flow" value="-" id="usr">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="usr">6 PM:</label>
+                                                <input type="text" class="form-control" name="flow" value="-" id="usr">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="usr">7 PM:</label>
+                                                <input type="text" class="form-control" name="flow" value="-" id="usr">
+                                            </div>
+                                        </div>
+
+                                    </div>
+    }
+
+                                    
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-default">Add</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+        }
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th>Time</th>
+                            <th>Explain</th>
+                            <th>Date</th>
+                            <th>Operations</th>
+                        </tr>
+                    @if (Model.EventFlow != null)
+                    {
+                        foreach (var item in Model.EventFlow)
+                        {
+                            <tr>
+                                <td>@item.FlowTime</td>
+                                <td>@item.FlowName</td>
+                                <td>@Model.Event.EventDate.ToString("dd/MM/yyyy")</td>
+                                <td><a href="" data-toggle="modal" data-target="#myModal-@item.FlowId"><span class="label label-success"><i class="fa fa-fw fa-plus-circle"></i> Add/Edit </span></a></td>
+                            </tr>
+
+                            <div id="myModal-@item.FlowId" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    @using (Html.BeginForm("FlowDetailAdd", "Home",FormMethod.Post))
+                                    {
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">@item.FlowName Detail Add</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input type="hidden" name="EventId" value="@Model.Event.EventID" />
+                                                <input type="hidden" name="flowID" value="@item.FlowId" />
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="usr">Header :</label>
+                                                        <input type="text" class="form-control" name="header" value="@item.Header" id="usr">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="usr">Explain :</label>
+                                                        <input type="text" class="form-control" name="explain" value="@item.Explain" id="usr">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="usr">Company Name:</label>
+                                                        <input type="text" class="form-control" name="company" value="@item.CompanyName" id="usr">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success">Save</button>
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    }
+                                  
+
+                                </div>
+                            </div>
+                        }
+                    }
+                       
+                       
+                       
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+        <!-- /.box -->
+     
+    </div>
+</div>

@@ -1,0 +1,14 @@
+C:\Users\Ersin\Desktop\BeaMore\Beamore.API\Beamore.Contracts\bin\Debug\Beamore.Contracts.dll
+C:\Users\Ersin\Desktop\BeaMore\Beamore.API\Beamore.Contracts\bin\Debug\Beamore.Contracts.pdb
+C:\Users\Ersin\Desktop\BeaMore\Beamore.API\Beamore.Contracts\obj\Debug\Beamore.Contracts.csprojResolveAssemblyReference.cache
+C:\Users\Ersin\Desktop\BeaMore\Beamore.API\Beamore.Contracts\obj\Debug\Beamore.Contracts.dll
+C:\Users\Ersin\Desktop\BeaMore\Beamore.API\Beamore.Contracts\obj\Debug\Beamore.Contracts.pdb
+C:\Users\eersinyildizz\Source\Repos\Bemore\Beamore.Contracts\bin\Debug\Beamore.Contracts.dll
+C:\Users\eersinyildizz\Source\Repos\Bemore\Beamore.Contracts\bin\Debug\Beamore.Contracts.pdb
+C:\Users\eersinyildizz\Source\Repos\Bemore\Beamore.Contracts\obj\Debug\Beamore.Contracts.csprojResolveAssemblyReference.cache
+C:\Users\eersinyildizz\Source\Repos\Bemore\Beamore.Contracts\obj\Debug\Beamore.Contracts.dll
+C:\Users\eersinyildizz\Source\Repos\Bemore\Beamore.Contracts\obj\Debug\Beamore.Contracts.pdb
+C:\Users\eersinyildizz\Desktop\ERSIN\Bemore\Beamore.Contracts\bin\Debug\Beamore.Contracts.dll
+C:\Users\eersinyildizz\Desktop\ERSIN\Bemore\Beamore.Contracts\bin\Debug\Beamore.Contracts.pdb
+C:\Users\eersinyildizz\Desktop\ERSIN\Bemore\Beamore.Contracts\obj\Debug\Beamore.Contracts.dll
+C:\Users\eersinyildizz\Desktop\ERSIN\Bemore\Beamore.Contracts\obj\Debug\Beamore.Contracts.pdb

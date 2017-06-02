@@ -1,0 +1,130 @@
+﻿@model List<Beamore.Contracts.DataTransferObjects.EventDTO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Events</h2>
+
+
+
+<section class="content">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-danger">
+                        <a href="/Home/EventDetail/@item.EventID">
+                            <div class="box-header with-border">
+                                <h3 class="box-title"><img src="@item.LogoUrl" height="35" class="img-circle"><b>  @item.EventName</b></h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <!-- /.box-tools -->
+                            </div>
+                        </a>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4><b>Event Name :</b> @item.EventName</h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4><b>Event Tarihi :</b> @item.EventDate.ToString("dd/MM/yyyy") - @item.EventStartTime.ToString("hh:mm tt")</h4>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                @*<h4><b></b> @item.EventDate.ToString("dd/MM/yyyy") -<b>Start Time :</b>  @item.EventStartTime.ToString("hh:mm")</h4>*@
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h5>
+                                        <b>Address :</b>@item.Location.Address
+                                    </h5>
+                                </div>
+                                <div class="col-md-3">
+                                   
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h6><b>Email :</b> @item.EventEmail</h6>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+
+        }
+    }
+    else
+    {
+        <p>Event bulunmamaktadır.</p>
+    }
+
+
+
+</section>
+@*<div id="map"></div>*@
+@*<script>
+          // Note: This example requires that you consent to location sharing when
+          // prompted by your browser. If you see the error "The Geolocation service
+          // failed.", it means you probably did not give permission for the browser to
+          // locate you.
+          var map, infoWindow;
+          function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: -34.397, lng: 150.644},
+              zoom: 6
+            });
+            infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+                };
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+              }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+              });
+            } else {
+              // Browser doesn't support Geolocation
+              handleLocationError(false, infoWindow, map.getCenter());
+            }
+          }
+
+          function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                                  'Error: The Geolocation service failed.' :
+                                  'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+          }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6mhLlTRr4s0qz4_BHVk82fEahoyu4JF0&callback=initMap">
+    </script>*@

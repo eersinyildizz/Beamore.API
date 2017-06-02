@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D44C9161-2E69-470A-BC9A-2C7136919F62}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Beamore.Contracts</RootNamespace>
+    <AssemblyName>Beamore.Contracts</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="project.json" />
+    <!-- A reference to the entire .NET Framework is automatically included -->
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataTransferObjects\Account\ForgotPasswordDTO.cs" />
+    <Compile Include="DataTransferObjects\Account\ForgotPasswordResultDTO.cs" />
+    <Compile Include="DataTransferObjects\Account\LoginDTO.cs" />
+    <Compile Include="DataTransferObjects\Account\LoginReturnModel.cs" />
+    <Compile Include="DataTransferObjects\Account\RegisterDTO.cs" />
+    <Compile Include="DataTransferObjects\Account\RegistrationResultDTO.cs" />
+    <Compile Include="DataTransferObjects\EventDTO.cs" />
+    <Compile Include="DataTransferObjects\Event\EventDetail\EventDetailForPortalDTO.cs" />
+    <Compile Include="DataTransferObjects\Event\EventDetail\EventFlowDetailDTO.cs" />
+    <Compile Include="DataTransferObjects\Event\EventDetail\EventFlowDTO.cs" />
+    <Compile Include="DataTransferObjects\Event\EventDetail\FlowAddDTO.cs" />
+    <Compile Include="DataTransferObjects\Event\EventDetail\PortalEventReturnDTO.cs" />
+    <Compile Include="DataTransferObjects\Event\EventReturnDTO.cs" />
+    <Compile Include="DataTransferObjects\Event\EventSubscribeDTO.cs" />
+    <Compile Include="DataTransferObjects\Event\NewEventDTO.cs" />
+    <Compile Include="DataTransferObjects\LocationDTO.cs" />
+    <Compile Include="DataTransferObjects\NotificationDTO.cs" />
+    <Compile Include="DataTransferObjects\NotificationReturnDTO.cs" />
+    <Compile Include="DataTransferObjects\TokenModel.cs" />
+    <Compile Include="DataTransferObjects\Account\UserDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
