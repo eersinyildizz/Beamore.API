@@ -65,7 +65,7 @@ namespace Beamore.API.Controllers
         public async void SendNotificationAsync(NotificationModel msg)
         {
             var json = JsonConvert.SerializeObject(msg);
-            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("Endpoint=sb://beamoreemshub.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=GCA6od8DdZ2DgOf/wSdoy72VC+8NfztQsSidPriqugI=", "beamorehub");
+            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("key", "hubName");
             await hub.SendGcmNativeNotificationAsync(json);
         }
     }
